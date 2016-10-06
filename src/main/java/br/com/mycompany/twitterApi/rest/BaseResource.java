@@ -14,8 +14,6 @@ import javax.ws.rs.core.Response.Status;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import twitter4j.JSONException;
-
 public abstract class BaseResource {
 
 	/**
@@ -48,7 +46,7 @@ public abstract class BaseResource {
 	 * This function returns a response statement according to the status object sent by parameter
 	 * */
 	protected ResponseBuilder responseStatus( final Status status, final Object entity ) {
-		return responseStatus( status ).entity( entity );
+		return responseStatus( status ).entity( entity ).tag("twitterAPI");
 	}
 	
 	
