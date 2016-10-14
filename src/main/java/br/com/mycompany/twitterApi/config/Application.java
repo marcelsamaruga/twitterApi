@@ -18,6 +18,9 @@ import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletCon
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+
 @SpringBootApplication
 @ComponentScan( basePackages = {"br.com.mycompany.twitterApi"} )
 @EnableAutoConfiguration
@@ -32,5 +35,13 @@ public class Application {
 	    TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory();
 	    return tomcat;
 	}
+	
+	@Bean
+	public Twitter getTwitterInstance() {
+		// gets a twitter instance 
+		return new TwitterFactory().getInstance();
+	}
+
+
 	
 }

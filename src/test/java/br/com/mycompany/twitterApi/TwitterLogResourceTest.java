@@ -42,14 +42,16 @@ public class TwitterLogResourceTest extends BaseTests {
 		param.put("value", "Twitter4J");
 		
 		// retrieve the log from the rest webservice
-		RestAssured.given()
-				   .contentType("application/json")
-				   .parameters(param)
-				   .post( SEARCH_URI )
-				   .thenReturn()
-				   .body()
-				   .jsonPath()
-				   .get("log");
+		String postResult = RestAssured.given()
+									   .contentType("application/json")
+									   .parameters(param)
+									   .post( SEARCH_URI )
+									   .thenReturn()
+									   .body()
+									   .jsonPath()
+									   .get("log");
+		
+		System.out.println(postResult);
 		
 	}
 	

@@ -49,6 +49,9 @@ public class TwitterLogResource extends BaseResource {
 	
 	@Autowired
 	TwitterUserService twitterUserService;
+	
+	@Autowired
+	Twitter twitter;
 	/*************************/
 	
 	/**
@@ -67,9 +70,6 @@ public class TwitterLogResource extends BaseResource {
 			return super.responseError("The username/filter are not avaiable.");
 		}
 		
-		// gets a twitter instance 
-		Twitter twitter = new TwitterFactory().getInstance();
-
 		// returned list
 		List<TwitterLog> listTwitterLog = new ArrayList<TwitterLog>();
 		 
